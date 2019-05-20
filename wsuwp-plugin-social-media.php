@@ -17,7 +17,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require_once __DIR__ . '/includes/classes/class-wsuwp-social-media';
+require_once __DIR__ . '/includes/classes/class-wsuwp-social-media.php';
 
 $wsuwp_social_media = WSUWP\Social\WSUWP_Social_Media::get_instance();
 
