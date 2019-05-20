@@ -25,13 +25,15 @@ class WSUWP_Social_Media {
 
 	private function __construct() {
 
+		$this->init_plugin();
+
 	} // End __construct
 
 	private function init_plugin() {
 
-		require_once __DIR__ . 'class-social-metabox.php';
-		require_once __DIR__ . 'class-open-graph.php';
-		require_once __DIR__ . 'class-options.php';
+		require_once __DIR__ . '/class-social-metabox.php';
+		require_once __DIR__ . '/class-open-graph.php';
+		require_once __DIR__ . '/class-options.php';
 
 		$this->options        = new Options();
 		$this->social_metabox = new Social_Metabox( $this->options );
