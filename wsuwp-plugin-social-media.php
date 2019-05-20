@@ -11,3 +11,14 @@ Requires at least: 4.7
 Tested up to: 5.2.0
 Requires PHP: 5.3
 */
+
+// If this file is called directly, abort.
+if ( ! defined( 'WPINC' ) ) {
+	die;
+}
+
+require_once __DIR__ . '/includes/classes/class-wsuwp-social-media';
+
+$wsuwp_social_media = WSUWP\Social\WSUWP_Social_Media::get_instance();
+
+add_action( 'after_setup_theme', array( $wsuwp_social_media, 'setup_plugin' ) );
