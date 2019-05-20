@@ -42,9 +42,16 @@ class Social_Metabox {
 
 		$this->options->set_post_options( $post_id );
 
-		$search_title = $this->options->get_search_title();
+		$search_title   = $this->options->get_search_title();
+		$search_snippet = $this->options->get_search_snippet();
+		$fb_title       = $this->options->get_fb_title();
+		$fb_snippet     = $this->options->get_fb_snippet();
+		$fb_img_url     = $this->options->get_fb_img_url();
+		$fb_img_id      = $this->options->get_fb_img_id();
+		$tw_snippet     = $this->options->get_tw_snippet();
+		$tw_img_url     = $this->options->get_tw_img_url();
+		$tw_img_id      = $this->options->get_tw_img_id();
 		
-
 	} // End the_social_share_metabox
 
 
