@@ -4,6 +4,15 @@
 class Options {
 
 	private $metabox_screens = array( 'post', 'page' );
+	private $search_title;
+	private $search_snippet;
+	private $fb_title;
+	private $fb_snippet;
+	private $fb_img_url;
+	private $fb_img_id;
+	private $tw_snippet;
+	private $tw_img_url;
+	private $tw_img_id;
 
 
 	public function setup() {
@@ -33,7 +42,7 @@ class Options {
 	} // End
 
 
-	public function get_fb_title(); {
+	public function get_fb_title() {
 
 		return $this->fb_title;
 
