@@ -4,6 +4,50 @@
 class Options {
 
 	private $metabox_screens = array( 'post', 'page' );
+	private $post_options_array = array(
+		'_wsu_social_fb_img_id'        => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_fb_img_src'       => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_fb_img_src_small' => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_fb_img_src_large' => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_fb_title'         => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_fb_snippet'       => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_tw_img_id'        => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_tw_img_src'       => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_tw_img_src_small' => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_tw_img_src_large' => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social_tw_title'         => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_social-tw_snippet'       => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_search_title'            => array(
+			'callback' => 'sanitize_text_field',
+		),
+		'_wsu_search_snippet'          => array(
+			'callback' => 'sanitize_text_field',
+		),
+	);
 	private $search_title;
 	private $search_snippet;
 	private $fb_title;
@@ -23,8 +67,11 @@ class Options {
 
 	public function set_post_options_by_id( $post_id ) {
 
-		
+	}
 
+
+	public function get_post_options_array() {
+		return $this->post_options_array;
 	}
 
 

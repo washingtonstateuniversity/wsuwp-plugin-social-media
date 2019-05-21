@@ -8,6 +8,7 @@ class WSUWP_Social_Media {
 	public $options;
 	public $social_metabox;
 	public $open_graph;
+	private $save_post;
 
 
 	public static function get_instance() {
@@ -39,6 +40,14 @@ class WSUWP_Social_Media {
 		$this->options        = new Options();
 		$this->social_metabox = new Social_Metabox( $this->options );
 		$this->open_graph     = new Open_Graph( $this->options );
+
+		if ( is_admin() ) {
+
+			require_once __DIR__ . '/class-save-post.php';
+
+			$this->save_post = new Save_Post( $this->options );
+
+		} // End if
 
 	} // End init_plugin 
 

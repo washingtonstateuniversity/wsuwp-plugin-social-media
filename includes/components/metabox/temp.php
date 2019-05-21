@@ -21,6 +21,7 @@
 
 .wsu-social-search-tab-content {
     clear: both;
+    display: block;
 }
 </style>
 <script>
@@ -32,7 +33,7 @@ function wsu_social_tabs() {
     this.init = function() {
 
         self.tabs = document.getElementsByClassName('wsu-social-search-tab');
-        console.log( self.tabs );
+        //console.log( self.tabs );
         if ( self.tabs.length ) {
             self.bind_events();
         } // End if
@@ -43,16 +44,24 @@ function wsu_social_tabs() {
 
         for ( i = 0; i < self.tabs.length; i++ ) {
 
-            self.tabs[i].addEventListener("click", self.tab_click );
+            self.tabs[i].addEventListener( "click", self.tab_click );
 
         } // End for
 
     } // End bind_events
 
-    this.tab_click = function( event, item ) {
-        console.log( event );
-        console.log( item );
-        alert( 'fire' );
+    this.tab_active = function( tab_link ) {
+        var tab = tab_link.parentElement;
+        //var tabs = tab.parentElement.childNodes;
+        var tabs = tab.parentElement.childNodes;
+        console.log( tabs );
+        alert( tabs.length );
+        tab.classList.add('active-tab');
+    }
+
+    this.tab_click = function( event ) {
+        self.tab_active( event.target );
+        //console.log( event );
     }
 
     this.init();
