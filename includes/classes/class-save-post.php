@@ -19,7 +19,7 @@ class Save_Post {
 
 		foreach ( $screens as $screen ) {
 
-			add_action( 'save_post_' . $screen, array( $this, 'save_post' ) );
+			add_action( 'save_post_' . $screen, array( $this, 'save_post' ), 10, 2 );
 
 		} // End foreach
 
@@ -28,7 +28,7 @@ class Save_Post {
 
 	public function save_post( $post_id, $post ) {
 
-		$save_options = $this->options->get_post_options();
+		$save_options = $this->options->get_post_options_array();
 
 		foreach ( $save_options as $key => $option_array ) {
 

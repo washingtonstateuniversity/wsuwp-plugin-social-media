@@ -40,17 +40,26 @@ class Social_Metabox {
 
 	public function the_social_share_metabox( $post ) {
 
+		var_dump( get_post_meta( $post->ID ) );
+
+		var_dump( $this->options->get_metabox_screens() );
+
 		$this->options->set_post_options_by_id( $post->ID );
 
-		$search_title   = $this->options->get_search_title();
-		$search_snippet = $this->options->get_search_snippet();
-		$fb_title       = $this->options->get_fb_title();
-		$fb_snippet     = $this->options->get_fb_snippet();
-		$fb_img_url     = $this->options->get_fb_img_url();
-		$fb_img_id      = $this->options->get_fb_img_id();
-		$tw_snippet     = $this->options->get_tw_snippet();
-		$tw_img_url     = $this->options->get_tw_img_url();
-		$tw_img_id      = $this->options->get_tw_img_id();
+		$search_title     = $this->options->get_search_title();
+		$search_snippet   = $this->options->get_search_snippet();
+		$fb_title         = $this->options->get_fb_title();
+		$fb_snippet       = $this->options->get_fb_snippet();
+		$fb_img_src       = $this->options->get_fb_img_src();
+		$fb_img_src_small = $this->options->get_fb_img_src_small();
+		$fb_img_src_large = $this->options->get_fb_img_src_large();
+		$fb_img_id        = $this->options->get_fb_img_id();
+		$tw_title         = $this->options->get_tw_title();
+		$tw_snippet       = $this->options->get_tw_snippet();
+		$tw_img_src       = $this->options->get_tw_img_src();
+		$tw_img_src_small = $this->options->get_tw_img_src_small();
+		$tw_img_src_large = $this->options->get_tw_img_src_large();
+		$tw_img_id        = $this->options->get_tw_img_id();
 
 		include Utilities::get_plugin_component_path( 'metabox/tabs.php' );
 

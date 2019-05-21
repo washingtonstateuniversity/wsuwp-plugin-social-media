@@ -58,6 +58,12 @@ class WSUWP_Social_Media {
 		$this->social_metabox->setup();
 		$this->open_graph->setup();
 
+		if ( is_admin() && null !== $this->save_post ) {
+
+			$this->save_post->setup();
+
+		}
+
 	} // End setup_plugin
 
 
