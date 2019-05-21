@@ -46,20 +46,20 @@ class Social_Metabox {
 
 		$this->options->set_post_options_by_id( $post->ID );
 
-		$search_title     = $this->options->get_search_title();
-		$search_snippet   = $this->options->get_search_snippet();
-		$fb_title         = $this->options->get_fb_title();
-		$fb_snippet       = $this->options->get_fb_snippet();
-		$fb_img_src       = $this->options->get_fb_img_src();
-		$fb_img_src_small = $this->options->get_fb_img_src_small();
-		$fb_img_src_large = $this->options->get_fb_img_src_large();
-		$fb_img_id        = $this->options->get_fb_img_id();
-		$tw_title         = $this->options->get_tw_title();
-		$tw_snippet       = $this->options->get_tw_snippet();
-		$tw_img_src       = $this->options->get_tw_img_src();
-		$tw_img_src_small = $this->options->get_tw_img_src_small();
-		$tw_img_src_large = $this->options->get_tw_img_src_large();
-		$tw_img_id        = $this->options->get_tw_img_id();
+		$search_title     = $this->options->get_post_option_value( '_wsu_search_title', false );
+		$search_snippet   = $this->options->get_post_option_value( '_wsu_search_snippet', false );
+		$fb_title         = $this->options->get_post_option_value( '_wsu_social_fb_title', false );
+		$fb_snippet       = $this->options->get_post_option_value( '_wsu_social_fb_snippet', false );
+		$fb_img_src       = $this->options->get_post_option_value( '_wsu_social_fb_img_src', false );
+		$fb_img_src_small = $this->options->get_post_option_value( '_wsu_social_fb_img_src_small', false );
+		$fb_img_src_large = $this->options->get_post_option_value( '_wsu_social_fb_img_src_large', false );
+		$fb_img_id        = $this->options->get_post_option_value( '_wsu_social_fb_img_id', false );
+		$tw_title         = $this->options->get_post_option_value( '_wsu_social_tw_title', false );
+		$tw_snippet       = $this->options->get_post_option_value( '_wsu_social_tw_snippet', false );
+		$tw_img_src       = $this->options->get_post_option_value( '_wsu_social_tw_img_src', false );
+		$tw_img_src_small = $this->options->get_post_option_value( '_wsu_social_tw_img_src_small', false );
+		$tw_img_src_large = $this->options->get_post_option_value( '_wsu_social_tw_img_src_large', false );
+		$tw_img_id        = $this->options->get_post_option_value( '_wsu_social_tw_img_id', false );
 
 		include Utilities::get_plugin_component_path( 'metabox/tabs.php' );
 
