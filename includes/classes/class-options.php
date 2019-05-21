@@ -21,6 +21,13 @@ class Options {
 	} // End setup_plugin
 
 
+	public function set_post_options_by_id( $post_id ) {
+
+		
+
+	}
+
+
 	public function get_metabox_screens() {
 
 		return $this->metabox_screens;
@@ -89,7 +96,6 @@ class Options {
 		return $this->tw_img_id;
 
 	} // End
-
 
 
 }

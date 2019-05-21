@@ -22,7 +22,7 @@ class Social_Metabox {
 
 	public function register_social_metabox() {
 
-		$screens = $this->options->get_social_metabox_screens();
+		$screens = $this->options->get_metabox_screens();
 
 		foreach ( $screens as $screen ) {
 
@@ -40,7 +40,7 @@ class Social_Metabox {
 
 	public function the_social_share_metabox( $post ) {
 
-		$this->options->set_post_options( $post_id );
+		$this->options->set_post_options_by_id( $post->ID );
 
 		$search_title   = $this->options->get_search_title();
 		$search_snippet = $this->options->get_search_snippet();
@@ -51,6 +51,16 @@ class Social_Metabox {
 		$tw_snippet     = $this->options->get_tw_snippet();
 		$tw_img_url     = $this->options->get_tw_img_url();
 		$tw_img_id      = $this->options->get_tw_img_id();
+
+		include Utilities::get_plugin_component_path( 'metabox/tabs.php' );
+
+		include Utilities::get_plugin_component_path( 'metabox/tab-content-fb.php' );
+
+		include Utilities::get_plugin_component_path( 'metabox/tab-content-tw.php' );
+
+		include Utilities::get_plugin_component_path( 'metabox/tab-content-search.php' );
+
+		include Utilities::get_plugin_component_path( 'metabox/temp.php' );
 		
 	} // End the_social_share_metabox
 

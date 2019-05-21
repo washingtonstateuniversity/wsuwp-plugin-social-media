@@ -31,6 +31,7 @@ class WSUWP_Social_Media {
 
 	private function init_plugin() {
 
+		require_once __DIR__ . '/class-utilities.php';
 		require_once __DIR__ . '/class-social-metabox.php';
 		require_once __DIR__ . '/class-open-graph.php';
 		require_once __DIR__ . '/class-options.php';
