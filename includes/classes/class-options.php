@@ -3,6 +3,8 @@
 
 class Options {
 
+	private $post_types = array( 'post', 'page' );
+
 	private $metabox_screens = array( 'post', 'page' );
 
 	private $post_options_array = array(
@@ -31,6 +33,12 @@ class Options {
 			'placeholder'       => '',
 		),
 		'_wsu_social_fb_title'         => array(
+			'sanitize_callback' => 'sanitize_text_field',
+			'value'             => '',
+			'default_value'     => '',
+			'placeholder'       => '',
+		),
+		'_wsu_social_fb_url'         => array(
 			'sanitize_callback' => 'sanitize_text_field',
 			'value'             => '',
 			'default_value'     => '',
@@ -73,6 +81,12 @@ class Options {
 			'placeholder'       => '',
 		),
 		'_wsu_social_tw_snippet'       => array(
+			'sanitize_callback' => 'sanitize_text_field',
+			'value'             => '',
+			'default_value'     => '',
+			'placeholder'       => '',
+		),
+		'_wsu_social_tw_url'       => array(
 			'sanitize_callback' => 'sanitize_text_field',
 			'value'             => '',
 			'default_value'     => '',
