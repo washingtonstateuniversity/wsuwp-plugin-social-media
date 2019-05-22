@@ -23,6 +23,17 @@
     clear: both;
     display: block;
 }
+
+.wsu-form-field-wrapper.text-field label,
+.wsu-form-field-wrapper.select-field label,
+.wsu-form-field-wrapper.multiline-field label {
+    display: block;
+}
+
+.wsu-form-field-wrapper.multiline-field textarea {
+    width: 100%;
+    height: 75px;
+}
 </style>
 <script>
 function wsu_social_tabs() {

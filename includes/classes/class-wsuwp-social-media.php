@@ -38,8 +38,8 @@ class WSUWP_Social_Media {
 		require_once __DIR__ . '/class-options.php';
 
 		$this->options        = new Options();
-		$this->social_metabox = new Social_Metabox( $this->options );
 		$this->open_graph     = new Open_Graph( $this->options );
+		$this->social_metabox = new Social_Metabox( $this->options, $this->open_graph );
 
 		if ( is_admin() ) {
 
