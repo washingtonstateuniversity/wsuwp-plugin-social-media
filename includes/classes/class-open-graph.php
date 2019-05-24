@@ -38,8 +38,6 @@ class Open_Graph {
 
 	public function setup() {
 
-		//add_action( 'wp_head', array( $this, 'add_open_graph' ), 1 );
-
 	} // End setup_plugin
 
 
@@ -150,28 +148,97 @@ class Open_Graph {
 		return $this->default_url;
 	}
 
-	public function get_search_title() {
-		return $this->search_title;
+	public function get_search_title( $return_default = false ) {
+
+		if ( ! empty( $this->search_title ) ) {
+
+			return $this->search_title;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_title();
+
+		} else {
+
+			return '';
+
+		} // End if
+
 	}
 
-	public function get_search_snippet() {
-		return $this->search_snippet;
+	public function get_search_snippet( $return_default = false ) {
+
+		if ( ! empty( $this->search_snippet ) ) {
+
+			return $this->search_snippet;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_snippet();
+
+		} else {
+
+			return '';
+
+		} // End if
+
 	}
 
-	public function get_fb_title() {
-		return $this->fb_title;
+	public function get_fb_title( $return_default = false ) {
+
+		if ( ! empty( $this->fb_title ) ) {
+
+			return $this->fb_title;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_title();
+
+		} else {
+
+			return '';
+
+		} // End if
+
 	}
 
-	public function get_fb_snippet() {
-		return $this->fb_snippet;
+	public function get_fb_snippet( $return_default = false ) {
+
+		if ( ! empty( $this->fb_snippet ) ) {
+
+			return $this->fb_snippet;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_snippet();
+
+		} else {
+
+			return '';
+
+		} // End if
+
 	}
 
 	public function get_fb_url() {
 		return $this->fb_url;
 	}
 
-	public function get_fb_img_src() {
-		return $this->fb_img_src;
+	public function get_fb_img_src( $return_default = false ) {
+
+		if ( ! empty( $this->fb_img_src ) ) {
+
+			return $this->fb_img_src;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_img_src();
+
+		} else {
+
+			return '';
+
+		} // End if
 	}
 
 	public function get_fb_img_src_small() {
@@ -186,20 +253,60 @@ class Open_Graph {
 		return $this->fb_img_id;
 	}
 
-	public function get_tw_title() {
-		return $this->tw_title;
+	public function get_tw_title( $return_default = false ) {
+
+		if ( ! empty( $this->tw_title ) ) {
+
+			return $this->tw_title;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_title();
+
+		} else {
+
+			return '';
+
+		} // End if
 	}
 
-	public function get_tw_snippet() {
-		return $this->tw_snippet;
+	public function get_tw_snippet( $return_default = false ) {
+
+		if ( ! empty( $this->tw_snippet ) ) {
+
+			return $this->tw_snippet;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_snippet();
+
+		} else {
+
+			return '';
+
+		} // End if
+
 	}
 
 	public function get_tw_url() {
 		return $this->tw_url;
 	}
 
-	public function get_tw_img_src() {
-		return $this->tw_img_src;
+	public function get_tw_img_src( $return_default = false ) {
+
+		if ( ! empty( $this->tw_img_src ) ) {
+
+			return $this->tw_img_src;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_img_src();
+
+		} else {
+
+			return '';
+
+		} // End if
 	}
 
 	public function get_tw_img_src_small() {
@@ -213,43 +320,6 @@ class Open_Graph {
 	public function get_tw_img_id() {
 		return $this->tw_img_id;
 	}
-
-
-	/*public function add_open_graph() {
-
-		$screens = $this->options->get_metabox_screens();
-
-		if ( is_singular( $screens ) ) {
-
-			$post_id = get_the_ID();
-
-			if ( $post_id ) {
-
-				$this->options->set_post_options_by_id( $post_id );
-
-				$search_title     = $this->options->get_post_option_value( '_wsu_search_title', false );
-				$search_snippet   = $this->options->get_post_option_value( '_wsu_search_snippet', false );
-				$fb_title         = $this->options->get_post_option_value( '_wsu_social_fb_title', false );
-				$fb_snippet       = $this->options->get_post_option_value( '_wsu_social_fb_snippet', false );
-				$fb_url           = $this->options->get_post_option_value( '_wsu_social_fb_url', false );
-				$fb_img_src       = $this->options->get_post_option_value( '_wsu_social_fb_img_src', false );
-				$fb_img_src_small = $this->options->get_post_option_value( '_wsu_social_fb_img_src_small', false );
-				$fb_img_src_large = $this->options->get_post_option_value( '_wsu_social_fb_img_src_large', false );
-				$fb_img_id        = $this->options->get_post_option_value( '_wsu_social_fb_img_id', false );
-				$tw_title         = $this->options->get_post_option_value( '_wsu_social_tw_title', false );
-				$tw_snippet       = $this->options->get_post_option_value( '_wsu_social_tw_snippet', false );
-				$tw_url           = $this->options->get_post_option_value( '_wsu_social_tw_url', false );
-				$tw_img_src       = $this->options->get_post_option_value( '_wsu_social_tw_img_src', false );
-				$tw_img_src_small = $this->options->get_post_option_value( '_wsu_social_tw_img_src_small', false );
-				$tw_img_src_large = $this->options->get_post_option_value( '_wsu_social_tw_img_src_large', false );
-				$tw_img_id        = $this->options->get_post_option_value( '_wsu_social_tw_img_id', false );
-
-				include Utilities::get_plugin_component_path( 'opengraph/opengraph.php' );
-
-			} // End if
-		} // End if
-
-	} // End add_open_graph*/
 
 
 }

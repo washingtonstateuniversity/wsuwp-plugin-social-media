@@ -31,7 +31,7 @@ class Social_Metabox {
 
 			add_meta_box(
 				'wsu_social_options',           // Unique ID
-				'Search & Social Settings',  // Box title
+				'Search & Social Share Settings',  // Box title
 				array( $this, 'the_social_share_metabox' ),  // Content callback, must be of type callable
 				$screen                   // Post type
 			);
@@ -58,12 +58,14 @@ class Social_Metabox {
 		$fb_title         = $this->open_graph->get_fb_title();
 		$fb_snippet       = $this->open_graph->get_fb_snippet();
 		$fb_img_src       = $this->open_graph->get_fb_img_src();
+		$fb_img_preview   = $this->open_graph->get_fb_img_src( true );
 		$fb_img_src_small = $this->open_graph->get_fb_img_src_small();
 		$fb_img_src_large = $this->open_graph->get_fb_img_src_large();
 		$fb_img_id        = $this->open_graph->get_fb_img_id();
 		$tw_title         = $this->open_graph->get_tw_title();
 		$tw_snippet       = $this->open_graph->get_tw_snippet();
 		$tw_img_src       = $this->open_graph->get_tw_img_src();
+		$tw_img_preview   = $this->open_graph->get_tw_img_src( true );
 		$tw_img_src_small = $this->open_graph->get_tw_img_src_small();
 		$tw_img_src_large = $this->open_graph->get_tw_img_src_large();
 		$tw_img_id        = $this->open_graph->get_tw_img_id();

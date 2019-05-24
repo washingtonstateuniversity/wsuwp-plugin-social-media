@@ -1,8 +1,8 @@
 <?php namespace WSUWP\Social;
 
 ?>
-<meta name="description" content="Free Web tutorials">
-<meta name="keywords" content="HTML,CSS,XML,JavaScript">
+<meta name="description" content="<?php echo esc_html( $search_snippet ); ?>">
+<meta name="keywords" content="">
 <meta property="og:title" content="<?php echo esc_html( $fb_title ); ?>" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<?php echo esc_url( $fb_url ); ?>" />

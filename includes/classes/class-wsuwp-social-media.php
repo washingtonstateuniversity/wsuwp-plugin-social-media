@@ -8,7 +8,8 @@ class WSUWP_Social_Media {
 	public $options;
 	public $social_metabox;
 	public $open_graph;
-	private $save_post;
+	public $single_post;
+	public $save_post;
 
 
 	public static function get_instance() {
@@ -36,10 +37,12 @@ class WSUWP_Social_Media {
 		require_once __DIR__ . '/class-social-metabox.php';
 		require_once __DIR__ . '/class-open-graph.php';
 		require_once __DIR__ . '/class-options.php';
+		require_once __DIR__ . '/class-single-post.php';
 
 		$this->options        = new Options();
 		$this->open_graph     = new Open_Graph( $this->options );
 		$this->social_metabox = new Social_Metabox( $this->options, $this->open_graph );
+		$this->single_post = new Single_Post( $this->options, $this->open_graph );
 
 		if ( is_admin() ) {
 
@@ -57,6 +60,7 @@ class WSUWP_Social_Media {
 		$this->options->setup();
 		$this->social_metabox->setup();
 		$this->open_graph->setup();
+		$this->single_post->setup();
 
 		if ( is_admin() && null !== $this->save_post ) {
 
