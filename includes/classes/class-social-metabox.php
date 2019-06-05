@@ -32,7 +32,28 @@ class Social_Metabox {
 
 		} // End foreach
 
+		if ( is_admin() ) {
+
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_metabox_scripts' ) );
+
+		} // End if
+
 	} // End setup_plugin
+
+
+	public function enqueue_metabox_scripts( $hook ) {
+
+		if ( false !== strpos( $hook, 'post.php' ) ) { 
+
+			$metabox_css_src = Utilities::get_plugin_src_url( 'css/metabox.css' );
+			$metabox_js_src  = Utilities::get_plugin_src_url( 'js/metabox.js' );
+
+			wp_enqueue_style( 'social_metabox_css', $metabox_css_src, array(), '0.0.1', false );
+			wp_enqueue_script( 'social_metabox_js', $metabox_js_src, array(), '0.0.1', true );
+
+		}
+
+	} // End enqueue_metabox_scripts
 
 
 	public function save_post( $post_id, $post, $update ) {
@@ -100,8 +121,6 @@ class Social_Metabox {
 		include Utilities::get_plugin_component_path( 'metabox/tab-content-tw.php' );
 
 		include Utilities::get_plugin_component_path( 'metabox/tab-content-search.php' );
-
-		include Utilities::get_plugin_component_path( 'metabox/temp.php' );
 
 	} // End the_social_share_metabox
 
