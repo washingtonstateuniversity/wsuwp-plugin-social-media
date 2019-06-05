@@ -5,9 +5,10 @@ class Single_Post {
 
 	private $options;
 	private $open_graph;
+	private $screens = array( 'post', 'page' );
 
 
-	public function __construct( Options $options, Open_Graph $open_graph ) {
+	public function __construct( Post_Options $options, Open_Graph $open_graph ) {
 
 		$this->options = $options;
 
@@ -24,9 +25,7 @@ class Single_Post {
 
 	public function add_open_graph() {
 
-		$screens = $this->options->get_metabox_screens();
-
-		if ( is_singular( $screens ) ) {
+		if ( is_singular( $this->screens ) ) {
 
 			$post_id = get_the_ID();
 

@@ -29,7 +29,7 @@ class Open_Graph {
 	private $tw_img_id = '';
 
 
-	public function __construct( Options $options ) {
+	public function __construct( Post_Options $options ) {
 
 		$this->options = $options;
 
@@ -43,7 +43,7 @@ class Open_Graph {
 
 	public function set_open_graph_by_post_id( $post_id ) {
 
-		$this->options->set_post_options_by_id( $post_id );
+		$this->options->set_post_options_values( $post_id );
 
 		$this->set_default_title_by_id( $post_id );
 		$this->set_default_snippet_by_id( $post_id );
