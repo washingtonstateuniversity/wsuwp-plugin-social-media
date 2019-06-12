@@ -48,6 +48,7 @@ class Open_Graph {
 		$this->set_default_title_by_id( $post_id );
 		$this->set_default_snippet_by_id( $post_id );
 		$this->set_default_img_by_post_id( $post_id );
+		$this->set_default_url_by_id( $post_id );
 
 		$this->search_title          = $this->options->get_post_option_value( '_wsu_search_title', false );
 		$this->search_snippet        = $this->options->get_post_option_value( '_wsu_search_snippet', false );
@@ -74,6 +75,15 @@ class Open_Graph {
 		$title = get_the_title( $post_id );
 
 		$this->default_title = apply_filters( 'the_title', $title );
+
+	} // End get_default_title
+
+
+	public function set_default_url_by_id( $post_id ) {
+
+		$link = get_permalink( $post_id );
+
+		$this->default_url = $link;
 
 	} // End get_default_title
 
@@ -121,19 +131,55 @@ class Open_Graph {
 
 
 	public function get_default_title() {
-		return $this->default_title;
+
+		if ( ! empty( $this->fb_title ) ) {
+
+			return $this->fb_title;
+
+		} else {
+
+			return $this->default_title;
+
+		}
 	}
 
 	public function get_default_snippet() {
-		return $this->default_snippet;
+
+		if ( ! empty( $this->fb_snippet ) ) {
+
+			return $this->fb_snippet;
+
+		} else {
+
+			return $this->default_snippet;
+
+		}
 	}
 
 	public function get_default_img_id() {
-		return $this->default_img_id;
+
+		if ( ! empty( $this->fb_img_id ) ) {
+
+			return $this->fb_img_id;
+
+		} else {
+
+			return $this->default_img_id;
+
+		}
 	}
 	
 	public function get_default_img_src() {
-		return $this->default_img_src;
+
+		if ( ! empty( $this->fb_img_src ) ) {
+
+			return $this->fb_img_src;
+
+		} else {
+
+			return $this->default_img_src;
+
+		}
 	}
 
 	public function get_default_img_src_small() {
@@ -220,8 +266,21 @@ class Open_Graph {
 
 	}
 
-	public function get_fb_url() {
-		return $this->fb_url;
+	public function get_fb_url( $return_default = false ) {
+
+		if ( ! empty( $this->fb_url ) ) {
+
+			return $this->fb_url;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_url();
+
+		} else {
+
+			return '';
+
+		} // End if
 	}
 
 	public function get_fb_img_src( $return_default = false ) {
@@ -288,8 +347,21 @@ class Open_Graph {
 
 	}
 
-	public function get_tw_url() {
-		return $this->tw_url;
+	public function get_tw_url( $return_default = false ) {
+
+		if ( ! empty( $this->tw_url ) ) {
+
+			return $this->tw_url;
+
+		} elseif ( $return_default ) {
+
+			return $this->get_default_url();
+
+		} else {
+
+			return '';
+
+		} // End if
 	}
 
 	public function get_tw_img_src( $return_default = false ) {

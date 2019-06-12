@@ -13,7 +13,7 @@
 }
 
 .wsu-social-search-tabs li a {
-    width: 80px;
+    width: 90px;
     display: block;
     text-align: center;
     border-left: 1px solid #ccc;
@@ -25,6 +25,7 @@
     background-color: #efefef;
     position: relative;
     z-index: 2;
+    top: 1px;
 }
 
 .wsu-social-search-tabs li.active-tab a {
@@ -34,7 +35,8 @@
     outline: none
 }
 .wsu-social-search-tabs li.active-tab a:focus {
-    outline: none
+    outline: none;
+    box-shadow: none;
 }
 .wsu-social-search-tabs li a:before {
     content: "";
@@ -43,12 +45,28 @@
     background: #ccc;
     display: block;
     margin: auto;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.wsu-social-search-tabs li a.fb-tab:before {
+    background-image: url(../images/facebook.png);
+}
+
+.wsu-social-search-tabs li a.tw-tab:before {
+    background-image: url(../images/twitter.png);
+}
+
+.wsu-social-search-tabs li a.search-tab:before {
+    background-image: url(../images/search.png);
 }
 
 .wsu-social-search-tab-content {
     clear: both;
     display: none;
-    border: 1px solid #ccc;
+    border-top: 1px solid #ccc;
+    /*border: 1px solid #ccc; */
     position: relative;
     top: -1px;
     padding: 20px;

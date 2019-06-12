@@ -7,8 +7,8 @@
 		<label>Search Snippet</label>
 		<textarea name="_wsu_search_snippet" placeholder="<?php echo esc_attr( $default_snippet ); ?>"><?php echo esc_html( $search_snippet ); ?></textarea>
 	</div>
-	<div class="wsu-form-field-wrapper text-field">
+	<!--<div class="wsu-form-field-wrapper text-field">
 		<label>Keywords</label>
 		<input type="text" name="_wsu_search_keyworkds" value="" />
-	</div>
+	</div> -->
 </fieldset>
