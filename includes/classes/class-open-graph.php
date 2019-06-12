@@ -120,11 +120,11 @@ class Open_Graph {
 
 	public function set_default_img_by_id( $img_id ) {
 
-		$this->default_img_src = wp_get_attachment_image_url( $img_id, 'full' );
+		$this->default_img_src = wp_get_attachment_image_url( $img_id, 'large' );
 
-		$this->default_img_src_small = wp_get_attachment_image_url( $img_id, 'large' );
+		$this->default_img_src_small = wp_get_attachment_image_url( $img_id, 'thumbnail' );
 
-		$this->default_img_src_large = wp_get_attachment_image_url( $img_id, 'thumbnail' );
+		$this->default_img_src_large = wp_get_attachment_image_url( $img_id, 'large' );
 
 	} // End get_default_title
 
