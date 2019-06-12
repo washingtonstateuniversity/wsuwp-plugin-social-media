@@ -4,6 +4,7 @@
 class Social_Metabox {
 
 	private $options;
+	private $site_options;
 	private $open_graph;
 	private $nonce_name = 'wsuwp_social';
 	private $nonce_action = 'wsuwp_social_save_meta';
@@ -11,22 +12,22 @@ class Social_Metabox {
 	private $screens = array( 'post', 'page' );
 
 
-	public function __construct( Post_Options $options, Open_Graph $open_graph ) {
+	public function __construct( Site_Options $site_options, Post_Options $options, Open_Graph $open_graph ) {
 
-		$this->options = $options;
-
-		$this->open_graph = $open_graph;
+		$this->site_options = $site_options;
+		$this->options      = $options;
+		$this->open_graph   = $open_graph;
 
 	} // End __construct
 
 
 	public function setup() {
 
+		$this->screens = explode( ',', $this->site_options->get_wsuwp_option( 'wsuwp_social_metabox_screens', true ) );
+
 		add_action( 'add_meta_boxes', array( $this, 'register_social_metabox' ) );
 
-		$screens = $this->screens;
-
-		foreach ( $screens as $screen ) {
+		foreach ( $this->screens as $screen ) {
 
 			add_action( 'save_post_' . $screen, array( $this, 'save_post' ), 10, 3 );
 

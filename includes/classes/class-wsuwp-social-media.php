@@ -9,7 +9,8 @@ class WSUWP_Social_Media {
 	public $social_metabox;
 	public $open_graph;
 	public $single_post;
-	public $save_post;
+	public $social_customizer;
+	public $site_options;
 
 
 	public static function get_instance() {
@@ -37,28 +38,38 @@ class WSUWP_Social_Media {
 		require_once __DIR__ . '/class-social-metabox.php';
 		require_once __DIR__ . '/class-open-graph.php';
 		require_once __DIR__ . '/wsuwp-classes/class-post-options.php';
+		require_once __DIR__ . '/wsuwp-classes/class-site-options.php';
 		require_once __DIR__ . '/class-social-post-options.php';
 		require_once __DIR__ . '/class-single-post.php';
+		require_once __DIR__ . '/class-social-customizer.php';
+		require_once __DIR__ . '/class-social-site-options.php';
 
-		$this->post_options   = new Social_Post_Options();
-		$this->open_graph     = new Open_Graph( $this->post_options );
-		$this->social_metabox = new Social_Metabox( $this->post_options, $this->open_graph );
-		$this->single_post = new Single_Post( $this->post_options, $this->open_graph );
+		$this->post_options      = new Social_Post_Options();
+		$this->site_options      = new Social_Site_Options();
+		$this->open_graph        = new Open_Graph( $this->post_options );
+		$this->single_post       = new Single_Post( $this->site_options, $this->post_options, $this->open_graph );
+		$this->social_customizer = new Social_Customizer();
 
-	} // End init_plugin 
+		if ( is_admin() ) {
+
+			$this->social_metabox  = new Social_Metabox( $this->site_options, $this->post_options, $this->open_graph );
+
+		} // End if
+
+	} // End init_plugin
 
 
 	public function setup_plugin() {
 
-		$this->social_metabox->setup();
 		$this->open_graph->setup();
 		$this->single_post->setup();
+		$this->social_customizer->setup();
 
-		if ( is_admin() && null !== $this->save_post ) {
+		if ( is_admin() ) {
 
-			$this->save_post->setup();
+			$this->social_metabox->setup();
 
-		}
+		} // End if
 
 	} // End setup_plugin
 
