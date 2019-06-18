@@ -55,17 +55,14 @@ class Open_Graph {
 		$this->fb_title              = $this->options->get_post_option_value( '_wsu_social_fb_title', false );
 		$this->fb_snippet            = $this->options->get_post_option_value( '_wsu_social_fb_snippet', false );
 		$this->fb_url                = $this->options->get_post_option_value( '_wsu_social_fb_url', false );
-		$this->fb_img_src            = $this->options->get_post_option_value( '_wsu_social_fb_img_src', false );
-		$this->fb_img_src_small      = $this->options->get_post_option_value( '_wsu_social_fb_img_src_small', false );
-		$this->fb_img_src_large      = $this->options->get_post_option_value( '_wsu_social_fb_img_src_large', false );
 		$this->fb_img_id             = $this->options->get_post_option_value( '_wsu_social_fb_img_id', false );
 		$this->tw_title              = $this->options->get_post_option_value( '_wsu_social_tw_title', false );
 		$this->tw_snippet            = $this->options->get_post_option_value( '_wsu_social_tw_snippet', false );
 		$this->tw_url                = $this->options->get_post_option_value( '_wsu_social_tw_url', false );
-		$this->tw_img_src            = $this->options->get_post_option_value( '_wsu_social_tw_img_src', false );
-		$this->tw_img_src_small      = $this->options->get_post_option_value( '_wsu_social_tw_img_src_small', false );
-		$this->tw_img_src_large      = $this->options->get_post_option_value( '_wsu_social_tw_img_src_large', false );
 		$this->tw_img_id             = $this->options->get_post_option_value( '_wsu_social_tw_img_id', false );
+
+		$this->set_fb_img_by_img_id( $this->fb_img_id );
+		$this->set_tw_img_by_img_id( $this->tw_img_id );
 
 	} // End set_open_graph_by_post_id
 
@@ -116,6 +113,50 @@ class Open_Graph {
 		} // End if
 
 	} // End get_default_title
+
+
+	public function set_fb_img_by_img_id( $img_id ) {
+
+		if ( ! empty( $img_id ) ) {
+
+			$img_src_large = wp_get_attachment_image_url( $img_id, 'large' );
+			$img_src_small = wp_get_attachment_image_url( $img_id, 'thumbnail' );
+
+			$this->fb_img_src       = $img_src_large;
+			$this->fb_img_src_small = $img_src_small;
+			$this->fb_img_src_large = $img_src_large;
+
+		} else {
+
+			$this->fb_img_src       = '';
+			$this->fb_img_src_small = '';
+			$this->fb_img_src_large = '';
+
+		}
+
+	} // End set_fb_img_by_img_id
+
+
+	public function set_tw_img_by_img_id( $img_id ) {
+
+		if ( ! empty( $img_id ) ) {
+
+			$img_src_large = wp_get_attachment_image_url( $img_id, 'large' );
+			$img_src_small = wp_get_attachment_image_url( $img_id, 'thumbnail' );
+
+			$this->tw_img_src       = $img_src_large;
+			$this->tw_img_src_small = $img_src_small;
+			$this->tw_img_src_large = $img_src_large;
+
+		} else {
+
+			$this->tw_img_src       = '';
+			$this->tw_img_src_small = '';
+			$this->tw_img_src_large = '';
+
+		}
+
+	} // End set_fb_img_by_img_id
 
 
 	public function set_default_img_by_id( $img_id ) {
@@ -298,6 +339,7 @@ class Open_Graph {
 			return '';
 
 		} // End if
+
 	}
 
 	public function get_fb_img_src_small() {
