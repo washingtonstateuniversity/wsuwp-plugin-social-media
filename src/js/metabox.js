@@ -110,6 +110,8 @@ function wsu_social_tabs() {
             // Get media attachment details from the frame state
             var attachment = self.media_uploader.state().get('selection').first().toJSON();
 
+            console.log( attachment );
+
             console.log( media_upload_wrapper );
 
             var input_src = media_upload_wrapper.querySelector('.wsu-media-upload-url');
