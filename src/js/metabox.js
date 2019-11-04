@@ -74,10 +74,10 @@ function wsu_social_tabs() {
         
         var img_preview = media_upload_wrapper.querySelector('.wsu-media-upload-preview');
 
-        input_src.value = '';
-        input_id.value = '';
+        input_src.value = ' ';
+        input_id.value = ' ';
 
-        img_url = '';
+        img_url = ' ';
 
         img_preview.setAttribute('style', 'background-image:url(' + img_url + ')');
     }
