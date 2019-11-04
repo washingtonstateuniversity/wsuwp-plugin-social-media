@@ -64,19 +64,16 @@
 
 .wsu-social-search-tab-content {
     clear: both;
-    display: none;
-    border-top: 1px solid #ccc;
-    /*border: 1px solid #ccc; */
     position: relative;
     top: -1px;
-    padding: 20px;
+    padding: 0.5rem 0.5rem;
     box-sizing: border-box;
     z-index: 3;
 }
 
 
 #wsu_social_options h3 {
-    padding: 0 0 1rem;
+    padding: 0rem;
     font-size: 1rem;
     font-weight: bold;
 }
@@ -102,8 +99,7 @@
 
 .wsu-form-field-media-upload-group {
     float: left;
-    width: 225px;
-    overflow: hidden;
+    width: 120px;
 }
 
 .wsu-form-field-media-upload-group .wsu-image-preview {
@@ -111,12 +107,21 @@
     background: #ccc;
     border: 1px solid #999;
     box-sizing: border-box;
-    width: 225px;
+    width: 140px;
     background-position: center center;
     background-size: cover;
 }
 
 .wsu-form-field-tw-group,
 .wsu-form-field-fb-group {
-    margin-left: 240px;
+    margin-left: 160px;
+}
+
+.wsu-form-field-media-upload-group .button-secondary:hover,
+.wsu-form-field-media-upload-group .button-secondary {
+	border: none;
+	background-color: transparent;
+	outline: none;
+	box-shadow: none;
+	color: #333;
 }

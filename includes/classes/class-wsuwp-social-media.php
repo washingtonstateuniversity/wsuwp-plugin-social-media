@@ -61,7 +61,6 @@ class WSUWP_Social_Media {
 
 	public function setup_plugin() {
 
-		$this->open_graph->setup();
 		$this->single_post->setup();
 		$this->social_customizer->setup();
 

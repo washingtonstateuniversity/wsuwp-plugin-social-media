@@ -90,38 +90,26 @@ class Social_Metabox {
 
 	public function the_social_share_metabox( $post ) {
 
-		$this->open_graph->set_open_graph_by_post_id( $post->ID );
+		$this->open_graph->set_open_graph( $post->ID );
 
 		wp_nonce_field( $this->nonce_action . '_' . $post->ID, $this->nonce_name );
 
-		$default_title    = $this->open_graph->get_default_title();
-		$default_snippet  = $this->open_graph->get_default_snippet();
-		$default_img_src  = $this->open_graph->get_default_img_src();
-		$default_url      = $this->open_graph->get_default_url();
-		$search_title     = $this->open_graph->get_search_title();
-		$search_snippet   = $this->open_graph->get_search_snippet();
-		$fb_title         = $this->open_graph->get_fb_title();
-		$fb_snippet       = $this->open_graph->get_fb_snippet();
-		$fb_img_src       = $this->open_graph->get_fb_img_src();
-		$fb_img_preview   = $this->open_graph->get_fb_img_src( true );
-		$fb_img_src_small = $this->open_graph->get_fb_img_src_small();
-		$fb_img_src_large = $this->open_graph->get_fb_img_src_large();
-		$fb_img_id        = $this->open_graph->get_fb_img_id();
-		$tw_title         = $this->open_graph->get_tw_title();
-		$tw_snippet       = $this->open_graph->get_tw_snippet();
-		$tw_img_src       = $this->open_graph->get_tw_img_src();
-		$tw_img_preview   = $this->open_graph->get_tw_img_src( true );
-		$tw_img_src_small = $this->open_graph->get_tw_img_src_small();
-		$tw_img_src_large = $this->open_graph->get_tw_img_src_large();
-		$tw_img_id        = $this->open_graph->get_tw_img_id();
+		$title              = $this->open_graph->get_title();
+		$default_title      = $this->open_graph->get_default_title();
+		$snippet            = $this->open_graph->get_snippet();
+		$default_snippet    = $this->open_graph->get_default_snippet();
+		$img_id             = $this->open_graph->get_img_id();
+		$default_img_id     = $this->open_graph->get_default_img_id();
+		$img_src            = $this->open_graph->get_img_src();
+		$default_img_src    = $this->open_graph->get_default_img_src();
+		$img_width          = $this->open_graph->get_img_width();
+		$default_img_width  = $this->open_graph->get_default_img_width();
+		$img_height         = $this->open_graph->get_img_height();
+		$default_img_height = $this->open_graph->get_default_img_height();
+		$url                = $this->open_graph->get_url();
+		$img_preview        = ( ! empty( $img_src ) ) ? $img_src : $default_img_src;
 
-		include Utilities::get_plugin_component_path( 'metabox/tabs.php' );
-
-		include Utilities::get_plugin_component_path( 'metabox/tab-content-fb.php' );
-
-		include Utilities::get_plugin_component_path( 'metabox/tab-content-tw.php' );
-
-		include Utilities::get_plugin_component_path( 'metabox/tab-content-search.php' );
+		include Utilities::get_plugin_component_path( 'metabox/settings.php' );
 
 	} // End the_social_share_metabox
 
