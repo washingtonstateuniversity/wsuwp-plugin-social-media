@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: WSUWP Social Media Tools
-Version: 1.0.0
+Version: 1.0.1
 Description: A plugin to add Social Media Tools.
 Author: washingtonstateuniversity, Danial Bleile
 Author URI: https://github.com/washingtonstateuniversity/
