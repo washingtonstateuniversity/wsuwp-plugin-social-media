@@ -5,7 +5,7 @@ class Single_Post {
 
 	private $options;
 	private $open_graph;
-	private $screens = array( 'post', 'page' );
+	private $screens = array( 'post', 'page', 'news_article', 'press_release', 'wsu_announcement' );
 
 
 	public function __construct( Site_Options $site_options, Post_Options $options, Open_Graph $open_graph ) {
